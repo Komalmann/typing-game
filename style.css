@@ -1,0 +1,36 @@
+:root{
+    --primary-color: #001b2e;
+    --secondary-color: #294c60;
+    --text-color:#fefae0;
+
+}
+
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+ /* --primary-color: #565264;
+ --secondary-color: #a6808c;
+ --text-color:#fefae0; */
+/* --primary-color: #212529;
+--secondary-color: #6c757d;
+--text-color:#fefae0; */
+
+nav{
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    width:100vw;
+}
+
+main{
+    background-color: var(--primary-color);
+        color: var(--text-color);
+    height:100vh;
+    width:100vw;
+
+}
+
+li{
+    list-style: none;
+}
