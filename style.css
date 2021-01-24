@@ -84,6 +84,11 @@ body {
     right: 2%;
 }
 
+#img 
+{
+    height: 1.9rem;
+}
+
 #quote
 {
     margin:0.5rem auto 0.5rem auto;
@@ -107,4 +112,5 @@ body {
     margin:1.5rem auto 1.5rem auto;
     position: relative; 
     height:6.7vh;  
+
 }
