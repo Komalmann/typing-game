@@ -10,7 +10,7 @@ const quotes = ["Good taste is for people who can't afford sapphires.",
 
 "You know, gentlemen, there is hell, and there is another place below hell.",
 
-"This place in under new management, by order of the Peaky Blinders.",
+"This place is under new management, by order of the Peaky Blinders.",
 
 
 "I imagine being shot by a woman hurts the same as being shot by a man. It’s just more shameful.",
@@ -42,6 +42,8 @@ startbutton.addEventListener('click',clickeventlisterener)
 
 function clickeventlisterener()
 {
+    typedValueElement.disabled = false;
+
     const quoteIndex = Math.floor(Math.random() * quotes.length);
 
     const quote = quotes[quoteIndex];
@@ -52,7 +54,7 @@ function clickeventlisterener()
     wordIndex = 0;
 
     //array of span elements is created so that we can set a class.
-    const spanwords = words.map(function(word) {return `<span>${word}</span>`});
+    const spanwords = words.map(function(word) {return `<span>${word} </span>`});
 
     quoteElement.innerHTML = spanwords.join('');
 
@@ -84,7 +86,12 @@ function inputeventhandler()
 
         const message = `CONGRATULATIONS! You finished in ${elapsedTime/1000} seconds.`;
 
-        messageElement.innerText = message;
+        messageElement.innerHTML = message;
+
+        typedValueElement.disabled = true;
+        typedValueElement.value ='';
+
+
     }
     else if(typedValue.endsWith(' ') && typedValue.trim()===currentword)
     {

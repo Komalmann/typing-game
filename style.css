@@ -90,7 +90,7 @@ body {
     padding:0.1rem;
     font-size: 1rem;
     text-align: center;
-    max-width: 80%;
+    max-width: 80vw;
 }
 
 #message
@@ -98,7 +98,7 @@ body {
     margin: 0.5rem auto 1rem auto;
     font-size: 1.1rem;
     text-align: center;
-    max-width: 80%;
+    max-width: 80vw;
 }
 
 #input-container
