@@ -1,6 +1,6 @@
 // 1 create the constants
 
-const quotes = ["Good taste is for people who can’t afford sapphires.",
+const quotes = ["Good taste is for people who can't afford sapphires.",
 
 "May you be in heaven a full half-hour before the devil knows you're dead.",
 
@@ -42,7 +42,8 @@ startbutton.addEventListener('click',clickeventlisterener)
 
 function clickeventlisterener()
 {
-    const quoteIndex = Math.floor(Math.random() * quotes.length)
+    const quoteIndex = Math.floor(Math.random() * quotes.length);
+
     const quote = quotes[quoteIndex];
 
     //put the quote into an array of words
@@ -53,13 +54,12 @@ function clickeventlisterener()
     //array of span elements is created so that we can set a class.
     const spanwords = words.map(function(word) {return `<span>${word}</span>`});
 
-    quoteElement.innerHTML = spanwords.join(' ');
+    quoteElement.innerHTML = spanwords.join('');
 
     quoteElement.childNodes[0].className ='highlight';
-    
-    messageElement.innerText = quote;
-    
 
+    messageElement.innerText = '';
+    
     typedValueElement.value = '';
 
     typedValueElement.focus();
@@ -67,6 +67,44 @@ function clickeventlisterener()
     startTime = new Date.getTime();
 }
 
+
+// 3 Input Listener
+
+typedValueElement.addEventListener('input',inputeventhandler);
+
+function inputeventhandler()
+{
+    const currentword = words[wordIndex];
+
+    const typedValue = typedValueElement.value;
+
+    if(typedValue === currentword && wordIndex===words.length-1)
+    {
+        const elapsedTime = new Date().getTime() - startTime;
+
+        const message = `CONGRATULATIONS! You finished in ${elapsedTime/1000} seconds.`;
+
+        messageElement.innerText = message;
+    }
+    else if(typedValue.endsWith(' ') && typedValue.trim()===currentword)
+    {
+       typedValueElement.value = '';
+       
+       wordIndex++;
+
+       for(const wordElement of quoteElement.childNodes)
+       {
+           wordElement.className = '';
+       }
+       quoteElement.childNodes[wordIndex].className = 'highlight';
+    }else if(currentword.startsWith(typedValue))
+    {
+        typedValueElement.className ='';
+    }else
+    {
+        typedValueElement.className = 'error';
+    }
+}
 
 
 
