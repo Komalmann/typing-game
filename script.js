@@ -32,6 +32,8 @@ const messageElement = document.getElementById('message');
 
 const typedValueElement  = document.getElementById('typed-value');
 
+    typedValueElement.disabled = true;
+
 
 let startbutton = document.getElementById('start');
 
